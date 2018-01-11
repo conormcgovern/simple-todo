@@ -3,7 +3,8 @@ import { ADD_TODO, DELETE_TODO } from '../actions/index';
 export default function(state = [], action) {
   switch(action.type) {
     case ADD_TODO:
-      let key = state.length;
+      let key = Date.now();
+      console.log(key);
       return [ { key: key, item: action.payload }, ...state];
 
     case DELETE_TODO:

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TodoInput from './todo_input';
 import TodoList from './todo_list';
+import CompletedList from './completed_list';
+import Completed from './completed';
 
 class App extends Component {
   render() {
@@ -12,6 +14,7 @@ class App extends Component {
         <div className="col-md-6 col-md-offset-3">
           <TodoInput />
           <TodoList />
+          <Completed />
         </div>
       </div>
     );

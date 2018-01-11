@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteTodo } from '../actions/index';
+import { deleteTodo, completeTodo } from '../actions/index';
 
 class TodoList extends Component {
 
@@ -12,9 +12,15 @@ class TodoList extends Component {
  }
 
   renderTodo(todo) {
+
     return (
       <li key={todo.key} className="list-group-item">
-        <input type="checkbox" onClick={(event) => this.props.deleteTodo(todo)}></input>{todo.item}
+        <input type="checkbox" onClick={(event) => {
+          this.props.deleteTodo(todo);
+          console.log(todo);
+          this.props.completeTodo(todo);
+        }
+        }></input>{todo.item}
       </li>
     );
   }
@@ -33,7 +39,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ deleteTodo }, dispatch);
+  return bindActionCreators({ deleteTodo, completeTodo }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

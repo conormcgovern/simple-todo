@@ -20,8 +20,10 @@ class TodoInput extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.addTodo(this.state.term);
-    this.setState({ term: '' });
+    if(this.state.term != '') {
+      this.props.addTodo(this.state.term);
+      this.setState({ term: '' });
+    }
   }
 
   render() {
@@ -35,7 +37,7 @@ class TodoInput extends Component {
             className="form-control input-lg"
             onChange={this.onInputChange}/>
             <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary btn-lg">Add</button>
+              <button type="submit" className="add-btn btn btn-secondary btn-lg">Add</button>
             </span>
         </form>
       </div>
