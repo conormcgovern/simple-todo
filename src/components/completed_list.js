@@ -18,13 +18,17 @@ class CompletedTodos extends Component {
  }
 
   renderTodo(todo) {
+    let date = new Date(todo.key);
+    console.log(date.toDateString());
     return (
       <li key={todo.key} className="list-group-item completed-item">
         <input type="checkbox" onClick={(event) => {
           this.props.addTodo(todo.item);
           this.props.uncompleteTodo(todo);
-        }
-        }></input>{todo.item}
+          }}>
+        </input>
+        {todo.item}
+        <span>Completed on {date.toLocaleDateString()}</span>
       </li>
     );
   }

@@ -41,8 +41,14 @@
   margin-top: 15px !important;
 }
 
-.completed-item {
+.completed-item  {
   text-decoration: line-through;
+}
+
+.completed-item span {
+  float: right;
+  margin-top: 4px;
+  font-size: 12px;
 }
 
 .completed-list {
